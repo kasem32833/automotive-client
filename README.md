@@ -13,8 +13,11 @@ Currently, two official plugins are available:
 #google fonts
 #daisy ui
 #firebase
-#react fonts
+#react toast
 
-#add favicon https://i.ibb.co/pLmXLbC/logo.png
+
+#add favicon https://i.ibb.co/GsbBb6F/Auto-car-logo-sport-cars-on-transparent-background-PNG.png
 #change title 
 
+#slider image: https://i.ibb.co/2SYnxHn/10014.jpg
+https://i.ibb.co/n3yZ6wF/10017.jpg

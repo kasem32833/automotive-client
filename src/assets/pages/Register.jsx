@@ -1,10 +1,11 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase/firebase.config";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 
 const Register = () => {
+  const {register} = useContext(AuthContext)
 
     
   const handleRegister = (event) => {
@@ -12,14 +13,11 @@ const Register = () => {
     const form = event.target
     const email = form.email.value;
     const password = form.password.value;
+    if(!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z!@#$%^&*()_+]{6,}$/.test(password)){
+      return 
+    }
     console.log( email, password);
-    createUserWithEmailAndPassword(auth, email, password)
-    .then(result=>{
-        console.log(result.user)
-    })
-    .catch(error=>{
-        console.log(error.message)
-    })
+    register( email, password)
   };
 
 

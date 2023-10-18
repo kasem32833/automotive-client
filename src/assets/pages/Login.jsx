@@ -1,13 +1,15 @@
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import { auth } from "../../firebase.config";
 import { NavLink } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+
+
 
 
 const Login = () => {
+
+  const {login} = useContext(AuthContext);
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -15,14 +17,8 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    login( email, password)
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        console.log("User login successfully");
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
   };
   return (
     <div>

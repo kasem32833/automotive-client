@@ -1,4 +1,4 @@
-import React from "react";
+
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
@@ -17,6 +17,7 @@ const Header = () => {
               <NavLink to="/addproduct">Add Products</NavLink>
             </div>
             <div className="flex gap-6">
+              <NavLink to="/mycart">My Cart</NavLink>
               <NavLink to="/login">Login</NavLink>
               <NavLink to="/register">Register </NavLink>
             </div>

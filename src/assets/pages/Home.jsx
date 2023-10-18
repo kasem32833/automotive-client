@@ -1,37 +1,71 @@
-import React from "react";
 import Slider from "react-slick";
 
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
   const settings = {
     dots: true,
-    arrows:true,
+    arrows: true,
     infinite: true,
     speed: 100,
     slidesToShow: 1,
     slidesToScroll: 1,
-
-//     https://i.ibb.co/xmHzCcm/images-1.jpg
-// https://i.ibb.co/jwW0nXY/images.jpg
-// https://i.ibb.co/r20bTDn/largest-car-companies.webp
-// https://i.ibb.co/vmRCGsn/The-Ford-Fiesta-and-Ford-Focus-the-no-1-and-no-2-UK-best-selling-cars-of-2014-e1420612716623.jpg
   };
+
+  // data loading form database
+  const data = useLoaderData();
 
   return (
     <div className="pb-20">
       <Slider {...settings}>
         <div className=" flex justify-center items-center">
-           <img className="w-full h-[480px]" src="https://i.ibb.co/xmHzCcm/images-1.jpg" alt="" />
+          <img
+            className="w-full h-[550px]"
+            src="https://i.ibb.co/2SYnxHn/10014.jpg"
+            alt=""
+          />
+          5
         </div>
-        <div  className="flex justify-center items-center">
-            <img className="w-full h-[480px]" src="https://i.ibb.co/jwW0nXY/images.jpg" alt="" />
+        <div className="flex justify-center items-center">
+          <img
+            className="w-full h-[550px] "
+            src="https://i.ibb.co/2SYnxHn/10014.jpg"
+            alt=""
+          />
         </div>
-        <div  className="flex justify-center items-center">
-            <img className="w-full h-[480px]" src=" https://i.ibb.co/vmRCGsn/The-Ford-Fiesta-and-Ford-Focus-the-no-1-and-no-2-UK-best-selling-cars-of-2014-e1420612716623.jpg" alt="" />
+        <div className="flex justify-center items-center">
+          <img
+            className="w-full h-[550px] cover"
+            src=" https://i.ibb.co/n3yZ6wF/10017.jpg"
+            alt=""
+          />
         </div>
       </Slider>
+      {/* brand carts */}
+      <div className="container mx-auto grid grid-cols-3 gap-6">
+       
+        {data.map((car) => (
+          <>
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <figure>
+                  <img className="w-full"
+                    src={car.photo}
+                    alt="Shoes"
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">{car.name}</h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Show Details</button>
+                  </div>
+                </div>
+            </div>
+          </>
+        ))}
+      </div>
     </div>
   );
 };
